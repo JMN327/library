@@ -15,7 +15,10 @@ function Book(title, author, pages) {
   this.pages = pages;
   this.read = false;
   this.info = function() {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ` + (this.read ? `has been read` : `not read yet`);
+    return `Title: ${this.title}
+Author: ${this.author}
+Pages:  ${this.pages}
+Read: ` + (this.read ? `Yes` : `no`);
   }
 }
 
@@ -26,10 +29,41 @@ function addBookToLibrary() {
 function displayBooks() {
     myLibrary.forEach(book => {
         console.log(book.info());
-        let para = document.createElement("p");
-        let node = document.createTextNode(book.info());
-        para.appendChild(node);
+        let ul = document.createElement("ul")
+        ul.classList.add("book")
+        let li = document.createElement("li");
+        let node = document.createTextNode(`Title:`);
+        li.appendChild(node);
+        ul.appendChild(li)
+        li = document.createElement("li");
+        node = document.createTextNode(book.title);
+        li.appendChild(node);
+        ul.appendChild(li)
+        li = document.createElement("li");
+        node = document.createTextNode(`Author:`);
+        li.appendChild(node);
+        ul.appendChild(li)
+        li = document.createElement("li");
+        node = document.createTextNode(book.author);
+        li.appendChild(node);
+        ul.appendChild(li)
+        li = document.createElement("li");
+        node = document.createTextNode(`Pages:`);
+        li.appendChild(node);
+        ul.appendChild(li)
+        li = document.createElement("li");
+        node = document.createTextNode(book.pages);
+        li.appendChild(node);
+        ul.appendChild(li)
+        li = document.createElement("li");
+        node = document.createTextNode(`Read:`);
+        li.appendChild(node);
+        ul.appendChild(li)
+        li = document.createElement("li");
+        node = document.createTextNode(book.read ? `Yes` : `no`);
+        li.appendChild(node);
+        ul.appendChild(li)
         let element = document.getElementById("book-cards");
-        element.appendChild(para);
+        element.appendChild(ul);
     });
 }
