@@ -1,25 +1,42 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
     /* outline: solid 1px green; */
 }
 body {
     display: flex;
     justify-content: center;
+    height: 100vh;
+    padding: 24px;
 }
 .container {
     width: 1000px;
+    display: grid;
+    grid-template-columns: 200px 800px;
 }
 
 #book-cards {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+    grid-auto-rows: min-content;
     gap: 24px;
-    margin: 24px;
+    margin-left: 36px;
 }
 #book-cards>p {
-    border: solid 1px black;
+    background-color: lightgray;
+    /* border: solid 1px black; */
     border-radius: 8px;
-    padding: 8px;
+    padding: 12px;
+}
+.side-bar{
+    background-color: hsl(0, 0%, 75%);
+
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+}
+.logo {
+    font-size: 2rem;
 }

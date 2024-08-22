@@ -2,7 +2,7 @@ const myLibrary = [];
 
 let book001 = new Book("The Munchkin", "Samwise Eatspies", 312);
 let book002 = new Book("The Rotor of Chronology", "Randy Newdude", 245);
-let book003 = new Book("the Hue of Spellcasting", "Terry Rincewind", 195);
+let book003 = new Book("The Hue of Spellcasting", "Terry Rincewind", 195);
 
 myLibrary.push(book001);
 myLibrary.push(book002);
