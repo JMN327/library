@@ -11,16 +11,16 @@
     <div class="container">
         <div class="side-bar">
             <div class="logo">Library</div>
-            <div class="new-book-form">
+            <form class="new-book-form" action="#" method="get" autocomplete="off">
                 <legend>Add a new book:</legend>
                 <label for="new-book-title">Title:</label>
-                <input type="text" id="new-book-title">
+                <input type="text" id="new-book-title" required minlength="3">
                 <label for="new-book-author">Author:</label>
-                <input type="text" id="new-book-author">
+                <input type="text" id="new-book-author" required minlength="3">
                 <label for="new-book-pages">Pages</label>
-                <input type="text"  id="new-book-pages">
-                <button id="new-book-add">Add</button>
-            </div>
+                <input type="text"  id="new-book-pages" required min="1">
+                <div class="button-container"><button type="submit" id="new-book-add">Add</button></div>
+            </form>
         </div>
         <div id="book-cards">
             
