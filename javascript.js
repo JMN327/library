@@ -26,10 +26,10 @@ bookCards.addEventListener("change", function (e) {
   let currentCardIndex = e.target.dataset.indexNumber;
   if (e.target.checked) {
     myLibrary[currentCardIndex].read = true;
-    displayBooks()
+    displayBooks();
   } else {
     myLibrary[currentCardIndex].read = false;
-    displayBooks()
+    displayBooks();
   }
 });
 
@@ -115,7 +115,21 @@ function displayBooks() {
 
     li.appendChild(node);
     ul.appendChild(li);
-    bookCards.appendChild(ul);
+
+    /* <svg><use href="#svg-delete-forever"></use></svg> */
+    let use = document.createElementNS("http://www.w3.org/2000/svg","use");
+    use.setAttribute("href", "#svg-delete-forever");
+    let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    /* svg.setAttribute("data-index-number", index); */
+    svg.appendChild(use);
+
+    let bookWrapper = document.createElement("div");
+    bookWrapper.classList.add("book-wrapper");
+
+    bookWrapper.appendChild(ul);
+    bookWrapper.appendChild(svg);
+
+    bookCards.appendChild(bookWrapper);
   });
 }
 

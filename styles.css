@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   /* outline: solid 1px green; */
+  font-family: "Montserrat", sans-serif;
 }
 body {
   display: flex;
@@ -23,29 +24,39 @@ body {
   grid-auto-rows: min-content;
   gap: 24px;
   margin-left: 24px;
+  position: relative;
 }
-#book-cards > .book {
-  background-color: lightgray;
-  /* border: solid 1px black; */
-  border-radius: 8px;
-  padding: 12px;
-  font-size: 1.3rem;
-  line-height: 2rem;
+.book-wrapper {
+    display: grid;
+    grid-template-columns: 7fr 1fr;
 
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  align-items: center;
+    background-color: lightgray;
+    /* border: solid 1px black; */
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1.2rem;
+    line-height: 2rem;
 }
-#book-cards > .book > * {
+
+
+.book-wrapper > .book {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  align-items: center;
+
+  
+}
+.book-wrapper > .book > * {
   display: flex;
   padding: 0px 4px;
+  
 }
-#book-cards > .book > *:nth-child(2n) {
+.book-wrapper > .book > *:nth-child(2n) {
   justify-content: left;
 }
-
-#book-cards > .book > *:nth-child(2n + 1) {
+.book-wrapper > .book > *:nth-child(2n + 1) {
   justify-content: right;
+  font-weight: 700;
 }
 
 .side-bar {
@@ -85,6 +96,7 @@ li {
     border-radius: 4px;
     outline: none;
     border: none;
+    cursor: pointer;
   }
   button:hover {
     background-color: white;
@@ -117,4 +129,20 @@ li {
 
 label {
   font-weight: 700;
+}
+
+svg {
+    /* outline: auto; */
+    width: 24px;
+    height: 24px;
+    fill: black;
+    transform: scale(1.5);
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+  }
+
+use {
+    width: 24px;
+    height: 24px;
 }
