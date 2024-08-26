@@ -7,7 +7,7 @@
 
 :root {
     
-    --switch-height: 1.5rem;
+    --switch-height: 1.3rem;
     --circle-radius: calc(var(--switch-height) - 8px);
     --switch-width: calc(var(--switch-height) + var(--circle-radius));
 }

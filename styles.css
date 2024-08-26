@@ -1,110 +1,120 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    /* outline: solid 1px green; */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* outline: solid 1px green; */
 }
 body {
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    padding: 24px;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  padding: 24px;
 }
 .container {
-    width: 1200px;
-    display: grid;
-    grid-template-columns: 300px 1fr;
+  width: 1200px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
 }
 
 #book-cards {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
-    grid-auto-rows: min-content;
-    gap: 24px;
-    margin-left: 24px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: min-content;
+  gap: 24px;
+  margin-left: 24px;
 }
-#book-cards>.book {
-    background-color: lightgray;
-    /* border: solid 1px black; */
-    border-radius: 8px;
-    padding: 12px;
-    font-size: 1.3rem;
-    line-height: 1.6rem;
+#book-cards > .book {
+  background-color: lightgray;
+  /* border: solid 1px black; */
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1.3rem;
+  line-height: 2rem;
 
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  align-items: center;
 }
-.side-bar{
-    background-color: hsl(0, 0%, 75%);
+#book-cards > .book > * {
+  display: flex;
+  padding: 0px 4px;
+}
+#book-cards > .book > *:nth-child(2n) {
+  justify-content: left;
+}
 
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
+#book-cards > .book > *:nth-child(2n + 1) {
+  justify-content: right;
+}
 
-    display: grid;
-    align-content: start;
-    align-items: center;
-    gap: 3rem;
+.side-bar {
+  background-color: hsl(0, 0%, 75%);
 
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+
+  display: grid;
+  align-content: start;
+  align-items: center;
+  gap: 3rem;
 }
 .logo {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 li {
-    text-decoration: none;
-    list-style-type: none;
+  text-decoration: none;
+  list-style-type: none;
 }
 .new-book-form {
-    legend {
-        grid-column: 1/3;
-        display: flex;
-        justify-content: flex-start;
-    }
-    display: grid;
+  legend {
+    grid-column: 1/3;
+    display: flex;
+    justify-content: flex-start;
+  }
+  display: grid;
 
-    grid-template-columns: 1fr 4fr;
-    align-items: center;
-/*     justify-items: center; */
+  grid-template-columns: 1fr 4fr;
+  align-items: center;
+  /*     justify-items: center; */
 
-    button {
-        width: 5ch;
-        height: 1.8rem;
-        border-radius: 4px;
-        outline: none;
-        border: none ;
-
-    }
-    button:hover {
-        background-color: white;
-        font-weight: bold;
-    }
-    .button-container {
-        grid-column: 1/3;
-        margin-top: 8px;
-        padding-right: 8px;
-        display: flex;
-        justify-content: flex-end;
-    }
-    input {
-        border-radius: 4px;
-        outline: none;
-        border: none ;
-        font-size: 1rem;
-        height: 1.6rem;
-        margin: 8px;
-        min-width: 100px;
-        width: min(min-content, 100px);
-        padding: 4px;
-        padding-top: 6px;
-        background-color: white;
-    }
-    input:valid {
-        border: solid rgb(82, 255, 47) 2px;
-    }
+  button {
+    width: 5ch;
+    height: 1.8rem;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+  }
+  button:hover {
+    background-color: white;
+    font-weight: bold;
+  }
+  .button-container {
+    grid-column: 1/3;
+    margin-top: 8px;
+    padding-right: 8px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  input {
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    height: 1.6rem;
+    margin: 8px;
+    min-width: 100px;
+    width: min(min-content, 100px);
+    padding: 4px;
+    padding-top: 6px;
+    background-color: white;
+  }
+  input:valid {
+    border: solid rgb(82, 255, 47) 2px;
+  }
 }
 
 label {
-    font-weight: 700;
+  font-weight: 700;
 }

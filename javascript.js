@@ -4,6 +4,7 @@ const readCheckbox = document.querySelector(".read-checkbox");
 const addTitle = document.querySelector("#new-book-title");
 const addAuthor = document.querySelector("#new-book-author");
 const addPages = document.querySelector("#new-book-pages");
+const bookCards = document.querySelector("#book-cards");
 
 let book001 = new Book("The Munchkin", "Samwise Eatspies", 312, true);
 let book002 = new Book("The Rotor of Chronology", "Randy Newdude", 245, false);
@@ -21,11 +22,14 @@ displayBooks();
 
 addBookButton.addEventListener("click", (event) => addBookToLibrary());
 
-readCheckbox.addEventListener("change", function () {
-  if (this.checked) {
-    console.log("Checkbox is checked..");
+bookCards.addEventListener("change", function (e) {
+  let currentCardIndex = e.target.dataset.indexNumber;
+  if (e.target.checked) {
+    myLibrary[currentCardIndex].read = true;
+    displayBooks()
   } else {
-    console.log("Checkbox is not checked..");
+    myLibrary[currentCardIndex].read = false;
+    displayBooks()
   }
 });
 
@@ -59,7 +63,7 @@ function displayBooks() {
   while (bookCards.firstChild) {
     bookCards.removeChild(bookCards.lastChild);
   }
-  myLibrary.forEach((book) => {
+  myLibrary.forEach((book, index) => {
     console.log(book.info());
     let ul = document.createElement("ul");
     ul.classList.add("book");
@@ -99,7 +103,7 @@ function displayBooks() {
     let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.classList.add("read-checkbox");
-    checkbox.attributes.add(`data-index ${index}`)
+    checkbox.setAttribute("data-index-number", index);
     book.read ? (checkbox.checked = true) : (checkbox.checked = false);
 
     let span = document.createElement("span");
