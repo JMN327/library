@@ -1,13 +1,13 @@
 /* taken from W3Schools example, customised to be adjustable by height */
 
 /* <label class="switch">
-  <input type="checkbox">
+  <input type="checkbox class="read-checkbox">
   <span class="slider round"></span>
 </label> */
 
 :root {
     
-    --switch-height: 2rem;
+    --switch-height: 1.5rem;
     --circle-radius: calc(var(--switch-height) - 8px);
     --switch-width: calc(var(--switch-height) + var(--circle-radius));
 }
