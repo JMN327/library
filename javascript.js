@@ -31,6 +31,15 @@ bookCards.addEventListener("change", function (e) {
     myLibrary[currentCardIndex].read = false;
     displayBooks();
   }
+  /* console.log(e.target + currentCardIndex); */
+});
+bookCards.addEventListener("click", function (e) {
+  let currentCardIndex = e.target.dataset.indexNumber;
+  console.log(e.target.getAttribute("class"));
+  if (e.target.getAttribute("class") === "trash-button") {
+        myLibrary.splice(currentCardIndex, 1);
+    displayBooks();
+  }
 });
 
 function Book(title, author, pages, read) {
@@ -117,17 +126,25 @@ function displayBooks() {
     ul.appendChild(li);
 
     /* <svg><use href="#svg-delete-forever"></use></svg> */
-    let use = document.createElementNS("http://www.w3.org/2000/svg","use");
+    let use = document.createElementNS("http://www.w3.org/2000/svg", "use");
     use.setAttribute("href", "#svg-delete-forever");
+    use.setAttribute("data-index-number", index);
+    use.classList.add("trash-button");
     let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    /* svg.setAttribute("data-index-number", index); */
+    svg.setAttribute("data-index-number", index);
+    svg.classList.add("trash-button");
     svg.appendChild(use);
+
+    let svgWrapper = document.createElement("div");
+    svgWrapper.classList.add("svg-wrapper");
+
+    svgWrapper.appendChild(svg);
 
     let bookWrapper = document.createElement("div");
     bookWrapper.classList.add("book-wrapper");
 
     bookWrapper.appendChild(ul);
-    bookWrapper.appendChild(svg);
+    bookWrapper.appendChild(svgWrapper);
 
     bookCards.appendChild(bookWrapper);
   });
