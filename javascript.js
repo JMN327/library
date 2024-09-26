@@ -1,3 +1,20 @@
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.info = function () {
+      return (
+        `Title: ${this.title}
+        Author: ${this.author}
+        Pages:  ${this.pages}
+        Read: ` + (this.read ? `Yes` : `no`)
+      );
+    };
+  }
+} 
+
 const myLibrary = [];
 const addBookButton = document.querySelector("#new-book-add");
 const readCheckbox = document.querySelector(".read-checkbox");
@@ -24,14 +41,14 @@ addBookButton.addEventListener("click", (event) => addBookToLibrary());
 
 bookCards.addEventListener("change", function (e) {
   let currentCardIndex = e.target.dataset.indexNumber;
+  console.log(e.target.getAttribute("class"));
   if (e.target.checked) {
     myLibrary[currentCardIndex].read = true;
-    displayBooks();
+    /* displayBooks(); */
   } else {
     myLibrary[currentCardIndex].read = false;
-    displayBooks();
+
   }
-  /* console.log(e.target + currentCardIndex); */
 });
 bookCards.addEventListener("click", function (e) {
   let currentCardIndex = e.target.dataset.indexNumber;
@@ -40,9 +57,18 @@ bookCards.addEventListener("click", function (e) {
         myLibrary.splice(currentCardIndex, 1);
     displayBooks();
   }
+  if (e.target.checked) {
+    myLibrary[currentCardIndex].read = true;
+    /* displayBooks(); */
+  } else {
+    myLibrary[currentCardIndex].read = false;
+    /* displayBooks(); */
+  }
 });
 
-function Book(title, author, pages, read) {
+
+
+/* function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -55,7 +81,7 @@ Pages:  ${this.pages}
 Read: ` + (this.read ? `Yes` : `no`)
     );
   };
-}
+} */
 
 function addBookToLibrary() {
   if (addTitle && addAuthor && addPages) {
@@ -111,7 +137,6 @@ function displayBooks() {
 
     let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.classList.add("read-checkbox");
     checkbox.setAttribute("data-index-number", index);
     book.read ? (checkbox.checked = true) : (checkbox.checked = false);
 
